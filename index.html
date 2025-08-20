@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quarterly Earnings — Interactive RevealJS Deck</title>
+  <meta name="description" content="Interactive quarterly earnings presentation with Markdown, fragments, code highlighting, math, and speaker notes." />
+  <!-- Reveal.js core CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css" />
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/black.css" id="theme" />
+  <!-- Code highlighting theme (GitHub style) -->
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@11.9.0/styles/github.min.css" />
+  <style>
+    /* Simple, modern tweaks */
+    .reveal h1, .reveal h2, .reveal h3 { letter-spacing: 0.4px; }
+    .reveal .brand { font-size: 24px; opacity: .85; }
+    .badge { display:inline-block; padding:.25em .6em; border-radius:999px; background:#1f6feb; color:#fff; font-size:.6em; vertical-align:middle; }
+    .kpi-grid { display:grid; grid-template-columns: repeat(4, minmax(160px,1fr)); gap:16px; }
+    .kpi { border-radius:16px; padding:18px; background:#111; box-shadow:0 6px 24px rgba(0,0,0,.35); }
+    .kpi h3 { margin:0 0 6px; font-size:28px; }
+    .kpi p { margin:0; font-size:18px; opacity:.85; }
+    .muted { opacity:.7; font-size:.85em; }
+    .left { text-align:left; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- TITLE -->
+      <section>
+        <h1>Quarterly Earnings Report <span class="badge">Interactive</span></h1>
+        <p class="brand">Prepared by: 22f3001480@ds.study.iitm.ac.in</p>
+        <p class="muted">Use ← → arrows • Press <kbd>S</kbd> for Speaker View • Press <kbd>?</kbd> for help</p>
+        <aside class="notes">
+          Welcome them. Mention this deck demonstrates modern presentation features: Markdown, fragments, code, math, and notes. Remind yourself to open the Speaker View with S.
+        </aside>
+      </section>
+
+      <!-- KPI SNAPSHOT with fragments -->
+      <section>
+        <h2>Q2 Snapshot</h2>
+        <div class="kpi-grid">
+          <div class="kpi fragment fade-up">
+            <h3>Revenue</h3>
+            <p>$3.42B</p>
+            <p class="muted">+8.1% YoY</p>
+          </div>
+          <div class="kpi fragment fade-up" data-fragment-index="1">
+            <h3>Net Income</h3>
+            <p>$612M</p>
+            <p class="muted">+5.4% YoY</p>
+          </div>
+          <div class="kpi fragment fade-up" data-fragment-index="2">
+            <h3>EPS (Diluted)</h3>
+            <p>$1.47</p>
+            <p class="muted">+4.2% YoY</p>
+          </div>
+          <div class="kpi fragment fade-up" data-fragment-index="3">
+            <h3>ROE</h3>
+            <p>13.6%</p>
+            <p class="muted">+60 bps YoY</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Reveal one KPI at a time to control pacing. Call out YoY growth and note that detailed breakdowns follow in the appendix.
+        </aside>
+      </section>
+
+      <!-- MARKDOWN SLIDE -->
+      <section data-markdown>
+        <script type="text/template">
+### Agenda (Markdown)
+
+1. **Financial Highlights** (KPI, revenue mix)
+2. **Business Updates** (segments, risk, outlook)
+3. **Guidance** (FY targets)
+4. **Q&A**
+
+> Contact: 22f3001480@ds.study.iitm.ac.in
+        </script>
+        <aside class="notes">This slide is authored in Markdown to show content agility for analysts who prefer Markdown-based sources.</aside>
+      </section>
+
+      <!-- CODE SAMPLE with syntax highlighting -->
+      <section>
+        <h2>Code Sample: CAGR Helper</h2>
+        <pre><code class="language-javascript">// Compound Annual Growth Rate (CAGR)
+// start: Starting value; end: Ending value; years: number of years
+function cagr(start, end, years) {
+  return Math.pow(end / start, 1 / years) - 1;
+}
+
+console.log((cagr(2.85e9, 3.42e9, 1) * 100).toFixed(2) + "%");
+        </code></pre>
+        <aside class="notes">Point out syntax highlighting via highlight.js and the practical finance utility of quick CAGR checks in dashboards.</aside>
+      </section>
+
+      <!-- MATH (financial formulas) -->
+      <section>
+        <h2>Financial Math</h2>
+        <p>Net Present Value (NPV):</p>
+        <p>\[ \mathrm{NPV} = \sum_{t=1}^{T} \frac{CF_t}{(1 + r)^t} - C_0 \]</p>
+        <p>Capital Asset Pricing Model (CAPM):</p>
+        <p>\[ \mathbb{E}[R_i] = R_f + \beta_i\,(\mathbb{E}[R_m] - R_f) \]</p>
+        <p>Earnings Per Share (EPS):</p>
+        <p>\[ \mathrm{EPS} = \frac{\text{Net Income} - \text{Dividends on Preferred}}{\text{Weighted Avg. Shares}} \]</p>
+        <aside class="notes">Explain how we apply these formulas in valuation and internal hurdle-rate reviews. Ensure MathJax rendering is enabled via the Reveal Math plugin.</aside>
+      </section>
+
+      <!-- SEGMENT MIX with fragments -->
+      <section>
+        <h2>Revenue Mix</h2>
+        <ul class="left">
+          <li class="fragment fade-in-then-semi-out">Retail Banking — 45%</li>
+          <li class="fragment fade-in-then-semi-out">Corporate &amp; Investment Banking — 33%</li>
+          <li class="fragment fade-in-then-semi-out">Wealth &amp; Asset Management — 17%</li>
+          <li class="fragment fade-in-then-semi-out">Other — 5%</li>
+        </ul>
+        <aside class="notes">Use the fade-in-then-semi-out style to keep attention on the current bullet. Mention region/currency effects if relevant.</aside>
+      </section>
+
+      <!-- NOTES DEMO -->
+      <section>
+        <h2>Guidance</h2>
+        <p class="fragment">FY Revenue growth: 6–8%</p>
+        <p class="fragment" data-fragment-index="1">Net interest margin: stable ± 10 bps</p>
+        <p class="fragment" data-fragment-index="2">Capital: CET1 &gt; 13%</p>
+        <aside class="notes">Reiterate sensitivity to rate curves and credit costs. Emphasize strong capital positioning.</aside>
+      </section>
+
+      <!-- THANK YOU -->
+      <section>
+        <h2>Thank You</h2>
+        <p>Questions? <strong>22f3001480@ds.study.iitm.ac.in</strong></p>
+        <p class="muted">Deck powered by RevealJS • Markdown • Fragments • Code Highlight • Math • Speaker Notes</p>
+        <aside class="notes">Close confidently; invite Q&A. Keep Speaker View open for any last-minute reminders.</aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal core + plugins -->
+  <script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/markdown/markdown.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/highlight/highlight.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/math/math.js"></script>
+
+  <script>
+    // Initialize Reveal
+    const deck = new Reveal({
+      hash: true,
+      slideNumber: true,
+      progress: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ],
+      // Configure Math plugin (KaTeX for speed)
+      math: {
+        // You can switch to 'mathjax2' if preferred
+        // For KaTeX (default here), plugin auto-loads KaTeX assets
+        // If falling back to MathJax:
+        // mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js',
+        // config: 'TeX-AMS_HTML-full'
+      }
+    });
+    deck.initialize();
+  </script>
+</body>
+</html>
